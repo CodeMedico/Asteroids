@@ -8,7 +8,7 @@ public abstract class Asteroid : MonoBehaviour
 {
     private Vector3 randomMovementDirection;
     [SerializeField] float asteroidSpeed;
-    private float cameraTopBound;
+    private float cameraTopBounds;
     private float cameraBottomBound;
     private float cameraLeftBound;
     private float cameraRightBound;
@@ -22,7 +22,7 @@ public abstract class Asteroid : MonoBehaviour
         cameraLeftBound = Camera.main.transform.position.x - (Camera.main.orthographicSize * Camera.main.aspect);
         cameraRightBound = Camera.main.transform.position.x + (Camera.main.orthographicSize * Camera.main.aspect);
         cameraBottomBound = Camera.main.transform.position.y - Camera.main.orthographicSize;
-        cameraTopBound = Camera.main.transform.position.y + Camera.main.orthographicSize;
+        cameraTopBounds = Camera.main.transform.position.y + Camera.main.orthographicSize;
 
     }
     void Update()
@@ -40,9 +40,9 @@ public abstract class Asteroid : MonoBehaviour
 
         if (transform.position.y < cameraBottomBound)
         {
-            transform.position = new Vector3(transform.position.x, cameraTopBound, transform.position.z);
+            transform.position = new Vector3(transform.position.x, cameraTopBounds, transform.position.z);
         }
-        else if (transform.position.y > cameraTopBound)
+        else if (transform.position.y > cameraTopBounds)
         {
             transform.position = new Vector3(transform.position.x, cameraBottomBound, transform.position.z);
         }
